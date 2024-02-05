@@ -1,0 +1,42 @@
+POST http://localhost:4100/users
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "johndoe1@yopmail.com",
+    "phone_number": "0712345678",
+    "role": "customer",
+    "password": "12345678",
+    "profile_image": "",
+    "location": "Kamakwa"
+}
+
+### GETTING ALL USERS
+
+GET http://localhost:4100/users
+Content-Type: application/json
+
+
+### GETTING USER BY ID
+
+GET http://localhost:4100/users/83171fba-de0b-48e1-b813-2d9479a59f9a
+
+
+###
+PUT http://localhost:4100/users/update/83171fba-de0b-48e1-b813-2d9479a59f9a
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "email": "janedoe@yopmail.com",
+    "phone_number": "0712345678",
+    "role": "customer",
+    "password": "12345678",
+    "profile_image": "",
+    "location": "Kamakwa"
+}
+
+###
+
+DELETE http://localhost:4100/users/delete/83171fba-de0b-48e1-b813-2d9479a59f9a
+Content-Type: application/json
