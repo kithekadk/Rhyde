@@ -2,13 +2,13 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "johndoe1@yopmail.com",
-    "phone_number": "0712345678",
+    "name": "Sheila Nyambura",
+    "email": "sheila@yopmail.com",
+    "phone_number": "0712345634",
     "role": "customer",
     "password": "12345678",
     "profile_image": "",
-    "location": "Kamakwa"
+    "location": "Nyeri"
 }
 
 ### GETTING ALL USERS
@@ -19,24 +19,23 @@ Content-Type: application/json
 
 ### GETTING USER BY ID
 
-GET http://localhost:4100/users/83171fba-de0b-48e1-b813-2d9479a59f9a
+GET http://localhost:4100/users/4756cf7d-ff5c-4b78-965d-864691cbe560
 
 
 ###
-PUT http://localhost:4100/users/update/83171fba-de0b-48e1-b813-2d9479a59f9a
+PUT http://localhost:4100/users/update/4756cf7d-ff5c-4b78-965d-864691cbe560
 Content-Type: application/json
 
 {
-    "name": "Jane Doe",
-    "email": "janedoe@yopmail.com",
-    "phone_number": "0712345678",
+    "name": "Nyambura Chomba",
+    "email": "sheila@yopmail.com",
+    "phone_number": "0787654321",
     "role": "customer",
     "password": "12345678",
-    "profile_image": "",
-    "location": "Kamakwa"
+    "profile_image": ""
 }
 
 ###
 
-DELETE http://localhost:4100/users/delete/83171fba-de0b-48e1-b813-2d9479a59f9a
+DELETE http://localhost:4100/users/delete/0b525987-47df-43ee-85a6-ab856849313b
 Content-Type: application/json
