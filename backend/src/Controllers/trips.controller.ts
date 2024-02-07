@@ -39,3 +39,33 @@ export const createTrip = async(req:Request, res:Response)=>{
         })
     }
 }
+
+export const getMyTrips = async(req:Request, res: Response)=>{
+    try {
+        const id = req.params.id
+
+        const pool = await mssql.connect(sqlConfig)
+
+        const trips = await(await pool.request()
+        .input("user_id", id)
+        .execute("getMyTrips")).recordset
+
+        console.log(trips);
+        
+
+        if(trips.length > 0){
+            return res.json({
+                trips
+            })
+        }else{
+            return res.json({
+                message: "No trips found"
+            })
+        }
+        
+    } catch (error) {
+        return res.json({
+            error: error.originalError.info.message
+        })
+    }
+}

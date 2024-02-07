@@ -7,7 +7,10 @@ CREATE TABLE Trip(
     price VARCHAR(10) NOT NULL,
     vehicle_size VARCHAR(50) NOT NULL,
     pickup_time DATETIME Default GETDATE(),
-    dropoff_time DATETIME
+    dropoff_time DATETIME,
+    status VARCHAR(50) DEFAULT 'pending'
 )
+
+DROP TABLE Trip
 
 SELECT * FROM Trip
