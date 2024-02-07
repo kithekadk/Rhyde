@@ -2,6 +2,21 @@ POST http://localhost:4100/auth/login
 Content-Type: application/json
 
 {
-    "email": "georgekarimi69@gmail.com",
+    "email": "meshackkorir100@gmail.com",
     "password": "12345678"
 }
+
+####
+PUT http://localhost:4100/auth/reset_pwd
+Content-Type: application/json
+
+{
+    "email": "meshackkorir100@gmail.com",
+    "phone_number": "0198678330",
+    "password": "12345678"
+}
+
+####
+POST http://localhost:4100/auth/checkdetails
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjA2ZmY5YjUtNTQxMy00ZjIwLWIzNDMtNTAxMjg1ZmNmMGEzIiwibmFtZSI6Ik1lc2hhY2sgS29yaXIiLCJlbWFpbCI6Im1lc2hhY2trb3JpcjEwMEBnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIwMTk4Njc4MzMwIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3MzA4MDgyLCJleHAiOjE3MDczMTE2ODJ9.ZG9z99DedQoS_F3AujeqYIeyWFUB6PxYnvprTKHOgqg

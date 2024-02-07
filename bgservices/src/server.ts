@@ -10,7 +10,6 @@ const run = async()=>{
         
         await welcomeUser()
     })
-    
 }
  
 run()

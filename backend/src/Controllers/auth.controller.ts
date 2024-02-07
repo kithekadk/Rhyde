@@ -4,6 +4,7 @@ import mssql from 'mssql'
 import jwt from 'jsonwebtoken'
 import { sqlConfig } from "../Config/sql.config";
 import { loginUserSchema } from "../Validators/auth.validators";
+import { ExtendedUserRequest } from "../Middlewares/verifyToken";
 
 
 export const loginUser = async (req: Request, res: Response)=>{
@@ -45,7 +46,9 @@ export const loginUser = async (req: Request, res: Response)=>{
                 return rest
             })
 
-            const token = jwt.sign(loginCredentials[0], process.env.SECRET as string)
+            const token = jwt.sign(loginCredentials[0], process.env.SECRET as string, {
+                expiresIn: '3600s'
+            })
 
             return res.status(200).json({
                 message: "Logged in successfully",
@@ -61,6 +64,46 @@ export const loginUser = async (req: Request, res: Response)=>{
     } catch (error) {
         return res.sendStatus(501).json({
             error: "Internal server error"
+        })
+    }
+}
+
+
+export const checkUserDetails = async(req: ExtendedUserRequest, res: Response)=>{
+    if(req.info){
+        return res.json({
+            info: req.info
+        })
+    }
+}
+
+export const resetPassword = async(req:Request, res: Response)=>{
+    try {
+        const {email, phone_number, password} = req.body
+
+        const pool = await mssql.connect(sqlConfig)
+
+        let hashedPwd = await bcrypt.hash(password, 5)
+
+        let result = (await pool.request()
+        .input("email", email)
+        .input("phone_number", phone_number)
+        .input("Password", hashedPwd)
+        .execute("resetPassword")).rowsAffected
+
+        if(result[0] < 1){
+            return res.json({
+                message: "User not found"
+            })
+        }else{
+            return res.json({
+                message: "Password updated successfully"
+            })
+        }
+        
+    } catch (error) {
+        return res.sendStatus(501).json({
+            error: error
         })
     }
 }

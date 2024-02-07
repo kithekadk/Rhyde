@@ -15,7 +15,7 @@ Content-Type: application/json
 
 GET http://localhost:4100/users
 Content-Type: application/json
-
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00ZDIzLTkyNTgtMDMxNTJkMjY0MjdmIiwibmFtZSI6Ikdlb3JnZSBLYXJpbWkiLCJlbWFpbCI6Imdlb3JnZWthcmltaTY5QGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjA3MTMyNDM0MjQzIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3MzA3MDM2fQ.ChIqA4PKoIEEVzFv4rc-a_2gKBt3qMUIuql7INrSNq0
 
 ### GETTING USER BY ID
 
