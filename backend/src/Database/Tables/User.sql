@@ -6,11 +6,12 @@ CREATE TABLE Users(
     role VARCHAR(20), Password VARCHAR(200) NOT NULL, 
     profile_image VARCHAR(200), 
     location VARCHAR(150),
-    isDeleted BIT Default 0
+    isDeleted BIT Default 0,
+    isWelcomed BIT Default 0
 )
 
-ALTER TABLE Users ADD isDeleted BIT Default 0
+ALTER TABLE Users ADD isWelcomed BIT Default 0
 
 SELECT * FROM Users
 
-UPDATE Users SET isDeleted = 0
+UPDATE Users SET isWelcomed = 0

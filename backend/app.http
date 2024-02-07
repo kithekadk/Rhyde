@@ -2,10 +2,10 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "Duncan King'ang'i",
-    "email": "king'ang'iduncan@gmail.com",
-    "phone_number": "0198678560",
-    "role": "customer",
+    "name": "James Kariuki",
+    "email": "jamesew2605@gmail.com",
+    "phone_number": "0798678330",
+    "role": "driver",
     "password": "12345678",
     "profile_image": "https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_640.png",
     "location": "Nairobi"
