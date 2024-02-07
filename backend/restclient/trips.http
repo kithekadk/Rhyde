@@ -1,0 +1,12 @@
+POST http://localhost:4100/trips/order_rhide
+Content-Type: application/json
+
+{
+    "customer_id": "206ff9b5-5413-4f20-b343-501285fcf0a3",
+    "driver_id": "62df57e4-f2d7-4ddd-898c-022f91582113",
+    "where_from": "Classic",
+    "destination": "KDS",
+    "price": "500 KSH",
+    "vehicle_size": "XL"
+}
+
