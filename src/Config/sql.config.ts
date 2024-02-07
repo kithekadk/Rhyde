@@ -1,18 +1,16 @@
 // import mssql from 'mssql'
 import dotenv from 'dotenv'
 
-dotenv.config({
-    path: '../../.env'
-});
+dotenv.config();
 
 // console.log(process.env);
 
 
 export const sqlConfig = {
-    user: 'sa',
-    password: 'Dante99.',
-    database: 'Rhyde',
-    server: "DANIEL_KITHEKA\\MSSQLSERVER1",
+    user: process.env.DB_USER as string,
+    password: process.env.DB_PWD as string,
+    database: process.env.DB_NAME as string,
+    server: process.env.SERVER as string,
 
     pool:{
         max: 10,
@@ -26,7 +24,7 @@ export const sqlConfig = {
     }
 }
 
-console.log(sqlConfig);
+// console.log(sqlConfig);
 
 // let connect = async () =>{
 //     let pool = await mssql.connect(sqlConfig)

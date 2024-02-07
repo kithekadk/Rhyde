@@ -2,13 +2,13 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "Sheila Nyambura",
-    "email": "sheila@yopmail.com",
-    "phone_number": "0712345634",
+    "name": "Duncan King'ang'i",
+    "email": "king'ang'iduncan@gmail.com",
+    "phone_number": "0198678560",
     "role": "customer",
     "password": "12345678",
-    "profile_image": "",
-    "location": "Nyeri"
+    "profile_image": "https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_640.png",
+    "location": "Nairobi"
 }
 
 ### GETTING ALL USERS
