@@ -2,13 +2,12 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "James Kariuki",
-    "email": "jamesew2605@gmail.com",
-    "phone_number": "0798678330",
-    "role": "driver",
+    "name": "Favour Buyanzi",
+    "email": "favourbuyanzi@gmail.com",
+    "phone_number": "0798121130",
+    "role": "customer",
     "password": "12345678",
-    "profile_image": "https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_640.png",
-    "location": "Nairobi"
+    "location": "Nanyuki"
 }
 
 ### GETTING ALL USERS
@@ -20,7 +19,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00
 ### GETTING USER BY ID
 
 GET http://localhost:4100/users/4756cf7d-ff5c-4b78-965d-864691cbe560
-
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00ZDIzLTkyNTgtMDMxNTJkMjY0MjdmIiwibmFtZSI6Ikdlb3JnZSBLYXJpbWkiLCJlbWFpbCI6Imdlb3JnZWthcmltaTY5QGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjA3MTMyNDM0MjQzIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3MzA3MDM2fQ.ChIqA4PKoIEEVzFv4rc-a_2gKBt3qMUIuql7INrSNq0
 
 ###
 PUT http://localhost:4100/users/update/4756cf7d-ff5c-4b78-965d-864691cbe560

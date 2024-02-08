@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main">
+    <form id="registrationForm">
+        <h2>User Registration</h2>
+        <p class="success-msg">Registered succeffully</p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="driver">Driver</option>
+            <option value="customer">Customer</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="Password" name="Password" required>
+
+        <!-- <label for="profile_image">Profile Image URL:</label>
+        <input type="text" id="profile_image" name="profile_image" required> -->
+
+        
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script src="dist/register.js"></script>
+</div>
+</body>
+</html>
