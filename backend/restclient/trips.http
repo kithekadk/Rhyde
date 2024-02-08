@@ -2,14 +2,19 @@ POST http://localhost:4100/trips/order_rhide
 Content-Type: application/json
 
 {
-    "customer_id": "206ff9b5-5413-4f20-b343-501285fcf0a3",
-    "driver_id": "1d1502e4-25ac-46de-90ad-c89554f29daf",
-    "where_from": "Kamakwa",
-    "destination": "Gatitu",
-    "price": "1000 KSH",
+    "customer_id": "4756cf7d-ff5c-4b78-965d-864691cbe560",
+    "driver_id": "62df57e4-f2d7-4ddd-898c-022f91582113",
+    "where_from": "Nyeri",
+    "destination": "Nanyuki",
+    "price": "1500 KSH",
     "vehicle_size": "SM"
 }
 
-###GET MY RIDES
-GET http://localhost:4100/trips/1d1502e4-25ac-46de-90ad-c89554f29daf
+###GET CUSTOMER RIDES
+GET http://localhost:4100/trips/customer/4756cf7d-ff5c-4b78-965d-864691cbe560
+Content-Type: application/json
+
+
+###GET DRIVER RIDES
+GET http://localhost:4100/trips/driver/62df57e4-f2d7-4ddd-898c-022f91582113
 Content-Type: application/json
