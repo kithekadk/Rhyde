@@ -1,0 +1,28 @@
+nav{
+    background-color: skyblue;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    align-items: center;
+    height: 8vh;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(37, 37, 184);
+}
+
+ul{
+    display: flex;
+    gap: 0px 30px
+}
+li{
+    list-style-type: none;
+
+}
+
+li:hover{
+    color: blue;
+    cursor: pointer;
+}

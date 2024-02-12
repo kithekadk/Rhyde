@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<p>
+    This project is called {{app_title}}
+</p>
+
+
+<img [src]="link" alt="">
+
+
+<button (click)="deleteImage()">Delete Images</button>
+<br><br>
+
+<input type="text" placeholder="Input your name" [(ngModel)]="name">
+
+<h2>{{name}}</h2>
+
+<br>
+<br>
+
+<input type="text" #cohort>
+
+<button (click)="displayCohort(cohort.value)">Submit</button>
+<br>
+I am in the {{cohortname}} Cohort
