@@ -1,5 +1,38 @@
-<app-navbar></app-navbar>
-<p>
+<div class="main">
+    <app-navbar></app-navbar>
+
+<div class="hero-section">
+    <div class="hero-text">
+        <h1>Rhide anywhere, anytime</h1>
+        <p #paragraphID></p>
+
+        <button appHostbinder>Join the Rhide</button>
+    </div>
+
+    <div class="hero-img">
+        <img src="/assets/uber.gif" alt="">
+    </div>
+
+</div>
+
+<div class="services">
+    <h1 style="text-align: center; margin-top: 30px;">What we offer</h1><br>
+    <div class="cards">
+       <div class="card" *ngFor="let service of services">
+            <div style="display:flex; flex-flow:column; gap:20px; margin:20px">
+                <h2>{{service.name}}</h2>
+                <p>{{service.description}}</p>
+            </div>
+            <img src="{{service.image}}" alt="" width="150px" height="100%" style="align-self: flex-end; border-bottom-right-radius: 10px; border-top-right-radius: 10px;">
+       </div> 
+    </div>
+</div>
+ 
+</div>
+
+
+
+<!-- <p>
     This project is called {{app_title}}
 </p>
 
@@ -21,4 +54,4 @@
 
 <button (click)="displayCohort(cohort.value)">Submit</button>
 <br>
-I am in the {{cohortname}} Cohort
+I am in the {{cohortname}} Cohort -->

@@ -7,7 +7,8 @@
         <li>Home</li>
         <li>About us</li>
         <li>Contact us</li>
-        <li>Register</li>
-        <li>Login</li>
+        <li *ngIf="!isLoggedIn">Register</li>
+        <li *ngIf="!isLoggedIn">Login</li>
+        <li *ngIf="isLoggedIn">Logout</li>  
     </ul>
 </nav>

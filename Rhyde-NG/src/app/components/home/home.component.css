@@ -1,0 +1,72 @@
+.main{
+    overflow-x: hidden;
+}
+
+.hero-section{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.hero-text{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hero-text > button{
+    padding: 10px;
+    width: 150px;
+    border-radius: 50px;
+    background-color: rgb(15, 176, 240);
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-text > p{
+    width: 40vw;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.hero-text > h1{
+    color: rgb(15, 176, 240);
+    line-height: 50px;
+    font-size: 60px;
+}
+
+.hero-section >div{
+    width: 40vw;
+}
+
+.services{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards{
+    margin-top: 30px;
+    width: 100vw;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card{
+    display: flex;
+    gap:20px;
+    width: 350px;
+    background: lightgray;
+    border-radius: 10px;
+    justify-content: space-between;
+}
