@@ -1,6 +1,6 @@
-<div class="main">
-    <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
+<div class="main">
 <div class="hero-section">
     <div class="hero-text">
         <h1>Rhide anywhere, anytime</h1>
@@ -20,13 +20,15 @@
     <div class="cards">
        <div class="card" *ngFor="let service of services">
             <div style="display:flex; flex-flow:column; gap:20px; margin:20px">
-                <h2>{{service.name}}</h2>
-                <p>{{service.description}}</p>
+                <h2>{{service.name | sentencecase}}</h2>
+                <p>{{service.description }}</p>
             </div>
             <img src="{{service.image}}" alt="" width="150px" height="100%" style="align-self: flex-end; border-bottom-right-radius: 10px; border-top-right-radius: 10px;">
        </div> 
     </div>
 </div>
+
+<app-aboutus [aboutHeading]="'About Us'" [aboutustext]="aboutusText" [aboutusImage]="aboutUsImg"></app-aboutus>
  
 </div>
 

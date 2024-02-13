@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HostbinderDirective } from '../../directives/hostbinder.directive';
 import { service } from '../../interfaces/home.interfaces';
+import { SentencecasePipe } from '../../pipes/sentencecase.pipe';
+import { AboutusComponent } from '../aboutus/aboutus.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, FormsModule, CommonModule, HostbinderDirective],
+  imports: [NavbarComponent, FormsModule, CommonModule, HostbinderDirective, SentencecasePipe, AboutusComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,13 +20,19 @@ export class HomeComponent {
   name = "User"
   cohortname = ''
 
+  // This is for about us section
+  aboutusText = "Rhide is the best mobility app. We’re making cities for people, offering better alternatives for every purpose a private car serves — including ride-hailing, shared cars, scooters, and food and grocery delivery."
+
+  aboutUsImg = '../../../assets/aboutus.jpg'
+
+    // This is the end of about us section
+
   constructor(private renderer: Renderer2){}
 
   @ViewChild('paragraphID') paragraphID!:ElementRef
 
   para = 'Rhide provides seamless transportation solutions at their fingertips. With a vast network of drivers and user-friendly features, Rhide ensures swift pickups and secure, enjoyable rides for all. '
 
- 
   ngAfterViewInit():void{
     let p = this.renderer.createElement('p')
     let text = this.renderer.createText(this.para)

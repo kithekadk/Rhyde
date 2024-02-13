@@ -1,5 +1,13 @@
 .main{
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.main >div{
+    max-width: 1200px;
 }
 
 .hero-section{
@@ -8,13 +16,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f9f9f9;
+    
 }
 
 .hero-text{
     display: flex;
     flex-direction: column;
     gap: 30px;
+
 }
 
 .hero-text > button{
@@ -48,6 +57,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: white;
 }
 
 .cards{
