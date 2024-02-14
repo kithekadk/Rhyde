@@ -30,7 +30,6 @@ export const welcomeUser = async()=>{
                 
             } catch (error) {
                 console.log(error);
-                
             }
         })
     }
