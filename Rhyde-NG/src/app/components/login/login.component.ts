@@ -14,7 +14,7 @@ export class LoginComponent {
     title = 'Login Here'
     link = '../assets/login.png'
 
-    authenticate(details:loginDetails){
+    login(details:loginDetails){
       console.log(details);
       
 
