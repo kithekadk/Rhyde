@@ -6,11 +6,12 @@ import { HostbinderDirective } from '../../directives/hostbinder.directive';
 import { service } from '../../interfaces/home.interfaces';
 import { SentencecasePipe } from '../../pipes/sentencecase.pipe';
 import { AboutusComponent } from '../aboutus/aboutus.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, FormsModule, CommonModule, HostbinderDirective, SentencecasePipe, AboutusComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, NavbarComponent, FormsModule, HostbinderDirective, SentencecasePipe, AboutusComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -48,6 +49,10 @@ export class HomeComponent {
 
   displayCohort(cohort:string){
     this.cohortname = cohort   
+  }
+
+  clickMe(){
+    console.log('clicked');
   }
 
   services: service[] = [

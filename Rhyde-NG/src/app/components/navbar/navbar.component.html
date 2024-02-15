@@ -5,11 +5,15 @@
 
     <ul>
         <li>{{today | date:'fullDate'}}</li>
-        <li>Home</li>
+        <li routerLink="">Home</li>
         <li>About us</li>
         <li>Contact us</li>
-        <li *ngIf="!isLoggedIn">Register</li>
-        <li *ngIf="!isLoggedIn">Login</li>
-        <li *ngIf="isLoggedIn">Logout</li>  
+        <li routerLink="/register" *ngIf="!isLoggedIn">Register</li>
+        <li (click)="navigatetoLogin()" *ngIf="!isLoggedIn">Login</li>
+        <li (click)="logout()" *ngIf="isLoggedIn">Logout</li>  
     </ul>
+
+    <!-- <a [routerLink]="'/login'">Login</a> -->
+
+    <!-- <button (click)="navigatetoLogin()">Clicked</button> -->
 </nav>
