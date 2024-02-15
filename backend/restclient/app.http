@@ -2,12 +2,12 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "Favour Buyanzi",
-    "email": "favourbuyanzi@gmail.com",
-    "phone_number": "0798121130",
-    "role": "customer",
-    "password": "12345678",
-    "location": "Nanyuki"
+    "name": "admin",
+    "email": "admin@yopmail.com",
+    "phone_number": "0787543219",
+    "role": "admin",
+    "password": "admin",
+    "location": "Nairobi"
 }
 
 ### GETTING ALL USERS
@@ -24,6 +24,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00
 ###
 PUT http://localhost:4100/users/update/4756cf7d-ff5c-4b78-965d-864691cbe560
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00ZDIzLTkyNTgtMDMxNTJkMjY0MjdmIiwibmFtZSI6Ikdlb3JnZSBLYXJpbWkiLCJlbWFpbCI6Imdlb3JnZWthcmltaTY5QGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjA3MTMyNDM0MjQzIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3MzA3MDM2fQ.ChIqA4PKoIEEVzFv4rc-a_2gKBt3qMUIuql7INrSNq0
 
 {
     "name": "Nyambura Chomba",
@@ -36,5 +37,6 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:4100/users/delete/0b525987-47df-43ee-85a6-ab856849313b
+DELETE http://localhost:4100/users/delete/8b8538ed-a064-4ded-925c-52eaee2a1b11
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjJkZjU3ZTQtZjJkNy00ZGRkLTg5OGMtMDIyZjkxNTgyMTEzIiwibmFtZSI6IkphbWVzIEthcml1a2kiLCJlbWFpbCI6ImphbWVzZXcyNjA1QGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjA3OTg2NzgzMzAiLCJyb2xlIjoiZHJpdmVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3OTkxNzkzLCJleHAiOjE3MDc5OTUzOTN9.VVI3bnUTKyR_SCqZ55rOPyx-tG1S_wOmeVsR3T877i0

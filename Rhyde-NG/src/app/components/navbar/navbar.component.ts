@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {  Router, RouterLink} from '@angular/router';
+import {  ActivatedRoute, Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +10,23 @@ import {  Router, RouterLink} from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  currentroute = (this.route.snapshot.routeConfig?.path);
+  token = localStorage.getItem('token') as string
+  constructor(private router:Router, private route:ActivatedRoute){
 
-  constructor(private router:Router){}
+    if(this.currentroute == 'login'){
+      if(this.token){
+        this.router.navigate([''])
+      }
+    }
+  }
   title = 'Rhyde'
 
-  isLoggedIn = localStorage.getItem('loggedIn')
+  isLoggedIn = localStorage.getItem('token')
 
   today = new Date()
 
-  navigatetoLogin(){
+  navigatetoLogin(){    
     this.router.navigate(['login'])
   }
 

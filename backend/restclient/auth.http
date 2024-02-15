@@ -2,7 +2,7 @@ POST http://localhost:4100/auth/login
 Content-Type: application/json
 
 {
-    "email": "meshackkorir100@gmail.com",
+    "email": "jamesew2605@gmail.com",
     "password": "12345678"
 }
 
@@ -19,4 +19,4 @@ Content-Type: application/json
 ####
 GET http://localhost:4100/auth/checkdetails
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjA2ZmY5YjUtNTQxMy00ZjIwLWIzNDMtNTAxMjg1ZmNmMGEzIiwibmFtZSI6Ik1lc2hhY2sgS29yaXIiLCJlbWFpbCI6Im1lc2hhY2trb3JpcjEwMEBnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIwMTk4Njc4MzMwIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3OTQyODE0LCJleHAiOjE3MDc5NDY0MTR9.Mz7KWWqo3hqfC9Q3fxRl2T6TsGJtaLFMeDvzj81U9ck
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjA2ZmY5YjUtNTQxMy00ZjIwLWIzNDMtNTAxMjg1ZmNmMGEzIiwibmFtZSI6Ik1lc2hhY2sgS29yaXIiLCJlbWFpbCI6Im1lc2hhY2trb3JpcjEwMEBnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIwMTk4Njc4MzMwIiwicm9sZSI6ImN1c3RvbWVyIiwiaXNXZWxjb21lZCI6dHJ1ZSwiaWF0IjoxNzA3OTg4OTYyLCJleHAiOjE3MDc5OTI1NjJ9._NLikDt_0gHMfht8vKCEvEQ2xV6F7DHXomZRfJvQwT8

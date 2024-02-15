@@ -7,15 +7,16 @@ import { service } from '../../interfaces/home.interfaces';
 import { SentencecasePipe } from '../../pipes/sentencecase.pipe';
 import { AboutusComponent } from '../aboutus/aboutus.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, NavbarComponent, FormsModule, HostbinderDirective, SentencecasePipe, AboutusComponent ],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, NavbarComponent, FormsModule, HostbinderDirective, SentencecasePipe, AboutusComponent, FooterComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent { 
   app_title:string='Rhyde Application'
   link = 'https://cdn.pixabay.com/photo/2021/06/10/12/41/ride-6325906_640.png'
   name = "User"
