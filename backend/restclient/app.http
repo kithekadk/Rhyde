@@ -2,11 +2,11 @@ POST http://localhost:4100/users
 Content-Type: application/json
 
 {
-    "name": "admin",
-    "email": "admin@yopmail.com",
-    "phone_number": "0787543219",
-    "role": "admin",
-    "password": "admin",
+    "name": "user",
+    "email": "user@yopmail.com",
+    "phone_number": "0787543211",
+    "role": "user",
+    "password": "user",
     "location": "Nairobi"
 }
 
