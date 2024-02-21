@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { sqlConfig } from '../Config/sql.config';
 import Connection from '../DbHelper/dbhelper';
 
-const dbhelper = new Connection
+// const dbhelper = new Connection
 
 export const createTrip = async(req:Request, res:Response)=>{
     try {
@@ -24,7 +24,7 @@ export const createTrip = async(req:Request, res:Response)=>{
         // .input("vehicle_size", vehicle_size)
         // .execute("orderRhide")).rowsAffected
 
-        let result = await (dbhelper.execute("orderRhide", {
+        let result = await (Connection.execute("orderRhide", {
             customer_id, driver_id, trip_id, where_from, destination, price, vehicle_size
         }))
 
@@ -58,10 +58,10 @@ export const getCustomerTrips = async(req:Request, res: Response)=>{
 
         // console.log(trips);
 
-        let trips = await dbhelper.execute("getMyTrips", {user_id:id})
+        let trips = await (await Connection.execute("getMyTrips", {user_id:id})).recordset
         
 
-        if(trips.recordset.length > 0){
+        if(trips.length > 0){
             return res.json({
                 trips
             })
@@ -87,7 +87,7 @@ export const getDriversTrips = async(req:Request, res: Response)=>{
 
         let query = `SELECT * FROM Trip WHERE driver_id = '${id}'`
 
-        let driver_trips = await dbhelper.query(query)
+        let driver_trips = await Connection.query(query)
 
         console.log(driver_trips);
         

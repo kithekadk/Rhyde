@@ -10,7 +10,7 @@ Content-Type: application/json
     "vehicle_size": "SM"
 }
 
-###GET CUSTOMER RIDES
+###GET CUSTOMER RIDES 
 GET http://localhost:4100/trips/customer/4756cf7d-ff5c-4b78-965d-864691cbe560
 Content-Type: application/json
 
