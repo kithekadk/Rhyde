@@ -1,0 +1,21 @@
+POST http://localhost:4100/vehicles
+Content-Type: application/json
+
+{
+    "driver_id":"62df57e4-f2d7-4ddd-898c-022f91582113", 
+    "capacity": 5, 
+    "registration_no": "KDK 777 Z", 
+    "brand": "Audi A6", 
+    "year_of_manufacture": 2020
+}
+
+
+### GET ALL Vehicles
+GET http://localhost:4100/vehicles
+Content-Type: application/json
+
+
+### GET ONE Vehicle
+
+GET http://localhost:4100/vehicles/c4fd4d53-f88f-4030-b469-11595d6dc62e
+Content-Type: application/json

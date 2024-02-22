@@ -41,7 +41,7 @@ export const loginUser = async (req: Request, res: Response)=>{
             }
 
             const loginCredentials = user.map(response =>{
-                const {Password, profile_image, location, isDeleted, ...rest} = response
+                const {Password, profile_image, location, isDeleted, phone_number,isWelcomed, ...rest} = response
 
                 return rest
             })
@@ -102,7 +102,7 @@ export const resetPassword = async(req:Request, res: Response)=>{
         }
         
     } catch (error) {
-        return res.sendStatus(501).json({
+        return res.status(501).json({
             error: error
         })
     }
