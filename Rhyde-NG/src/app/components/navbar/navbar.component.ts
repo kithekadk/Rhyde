@@ -11,7 +11,7 @@ import {  ActivatedRoute, Router, RouterLink} from '@angular/router';
 })
 export class NavbarComponent {
   currentroute = (this.route.snapshot.routeConfig?.path);
-  token = localStorage.getItem('token') as string
+  token = this.getToken()
   constructor(private router:Router, private route:ActivatedRoute){
 
     if(this.currentroute == 'login'){
@@ -22,12 +22,20 @@ export class NavbarComponent {
   }
   title = 'Rhyde'
 
-  isLoggedIn = localStorage.getItem('token')
+  isLoggedIn = this.getToken()
 
   today = new Date()
 
+  getToken(){
+    if(typeof window !== 'undefined'){
+      return localStorage?.getItem('token') as string
+    }else{
+      return null
+    }
+  }
+
   navigatetoLogin(){    
-    this.router.navigate(['login'])
+    this.router.navigate(['login']) 
   }
 
   navigatetoRegister(){
