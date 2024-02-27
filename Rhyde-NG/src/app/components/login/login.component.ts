@@ -54,7 +54,7 @@ export class LoginComponent {
               }else if(res.info.role == 'customer'){
                 this.router.navigate(['customer'])
               }else if(res.info.role == 'admin'){
-                this.router.navigate(['admin'])
+                this.router.navigate(['admin', 'view-users'])
               }
             }, 2000);
           })

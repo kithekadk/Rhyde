@@ -31,17 +31,17 @@ export class HomeComponent {
 
   constructor(private renderer: Renderer2){}
 
-  @ViewChild('paragraphID') paragraphID!:ElementRef
+  // @ViewChild('paragraphID') paragraphID!:ElementRef
 
   para = 'Rhide provides seamless transportation solutions at their fingertips. With a vast network of drivers and user-friendly features, Rhide ensures swift pickups and secure, enjoyable rides for all. '
 
-  ngAfterViewInit():void{
-    let p = this.renderer.createElement('p')
-    let text = this.renderer.createText(this.para)
+  // ngAfterViewInit():void{
+  //   let p = this.renderer.createElement('p')
+  //   let text = this.renderer.createText(this.para)
 
-    this.renderer.appendChild(p, text)
-    this.renderer.appendChild(this.paragraphID.nativeElement, p)
-  }
+  //   this.renderer.appendChild(p, text)
+  //   this.renderer.appendChild(this.paragraphID.nativeElement, p)
+  // }
 
 
   deleteImage(){

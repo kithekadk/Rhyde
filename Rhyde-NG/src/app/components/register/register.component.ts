@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent {
 
   registerForm!: FormGroup
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, private apiservice:ApiService){
     // this.registerForm = new FormGroup({
     //   name: new FormControl('', Validators.required),
     //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -29,12 +30,17 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       phone_number: ['', [Validators.required]],
       location: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]]
+      password: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]],
+      role: ['customer']
     })
   }
 
   registerUser(){
-    console.log(this.registerForm);
+    console.log(this.registerForm.value);
+    this.apiservice.registerUser(this.registerForm.value).subscribe(res=>{
+      console.log(res);
+      
+    })
     
   }
 }

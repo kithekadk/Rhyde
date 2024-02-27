@@ -45,4 +45,8 @@ export class ApiService {
       })
     })
   }
+
+  registerUser(details:updatedUser){
+    return this.http.post<{message:string, error:string}>(`http://localhost:4100/users`, details)
+  }
 }

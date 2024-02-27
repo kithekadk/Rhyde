@@ -13,7 +13,7 @@ export class AboutusComponent implements OnInit{
   @Input('aboutusImage') aboutusImage!: string
 
   ngOnInit(): void {
-    console.log(this.aboutusImage);
-    console.log('yteyt');
+    // console.log(this.aboutusImage);
+    // console.log('yteyt');
   }
 }

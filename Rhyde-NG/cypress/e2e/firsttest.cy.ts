@@ -9,4 +9,8 @@ describe('template spec', () => {
     cy.get('[type="button"]')
     cy.get('.cards > div')
   })
+
+  it('logs in a user', ()=>{
+    cy.loginUser()
+  })
 })

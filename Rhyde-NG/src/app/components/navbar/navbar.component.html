@@ -8,8 +8,8 @@
         <li routerLink="">Home</li>
         <li>About us</li>
         <li>Contact us</li>
-        <li routerLink="/register" *ngIf="!isLoggedIn">Register</li>
-        <li (click)="navigatetoLogin()" *ngIf="!isLoggedIn">Login</li>
+        <li routerLink="/register" class="register-link" *ngIf="!isLoggedIn">Register</li>
+        <li (click)="navigatetoLogin()" data-cy="login-link" *ngIf="!isLoggedIn">Login</li>
         <li (click)="logout()" *ngIf="isLoggedIn">Logout</li>  
     </ul>
 
