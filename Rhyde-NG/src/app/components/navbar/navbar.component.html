@@ -10,7 +10,7 @@
         <li>Contact us</li>
         <li routerLink="/register" class="register-link" *ngIf="!isLoggedIn">Register</li>
         <li (click)="navigatetoLogin()" data-cy="login-link" *ngIf="!isLoggedIn">Login</li>
-        <li (click)="logout()" *ngIf="isLoggedIn">Logout</li>  
+        <li (click)="logout()" *ngIf="isLoggedIn" data-cy="logout-link">Logout</li>  
     </ul>
 
     <!-- <a [routerLink]="'/login'">Login</a> -->
