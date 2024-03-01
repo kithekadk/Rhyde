@@ -1,4 +1,8 @@
-<!-- <div class="map"
-     leaflet
-     [leafletOptions]="options">
-</div> -->
+<form ngForm class="flex flex-col w-[85vw] justify-center" (ngSubmit)="searchLocation(location.value)">
+    <input #location type="search" placeholder="Search destination ..." class="p-2 m-2 w-[300px] bg-gray-500 text-white rounded">
+    locations
+    <div *ngFor="let location of matchingLocations" class="flex flex-col w-[50vw]">
+        <p>{{location.display_name}}</p>
+    </div>
+</form>
+<div id="map" class="h-[85vh] w-[85vw] ml-[10px]"> </div>
