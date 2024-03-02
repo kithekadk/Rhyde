@@ -14,6 +14,8 @@ export class MapComponent implements OnInit {
 
   map: any;
   markersLayer: any;
+  index!:number
+  hidelist = true
 
   matchingLocations: any[]=[]
 
@@ -29,7 +31,7 @@ export class MapComponent implements OnInit {
         import('leaflet').then((Leaflet) => {
           this.map = Leaflet.map('map', {
             center: [lat, long], // Initial map center coordinates
-            zoom: 20 // Initial zoom level
+            zoom: 13 // Initial zoom level
           });
 
           Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -55,6 +57,7 @@ export class MapComponent implements OnInit {
   }
 
   searchLocation(query: string) {
+    this.hidelist = false
     if (isPlatformBrowser(this.platformId)) {
       import('leaflet').then((Leaflet) => {
         if (query.trim() === '') return;
@@ -66,22 +69,34 @@ export class MapComponent implements OnInit {
           .then(data => {
             this.matchingLocations = data
             console.log(data);
-            
-            if (data.length > 0) {
-              const { lat, lon } = data[0];
-              this.map.setView([lat, lon], 16);
-              const marker = Leaflet.marker([lat, lon]).addTo(this.map)
-
-              marker.bindPopup(data[0].name).openPopup()
-              this.addMarker([lat, lon]);
-            } else {
-              console.error('Location not found');
-            }
           })
           .catch(error => console.error('Error searching location:', error));
       })
     }
   }
+
+  getLocationCoordsForSelectedLocation(index:number){
+
+    this.hidelist = true
+
+    this.index = index
+
+    if (isPlatformBrowser(this.platformId)) {
+      import('leaflet').then((Leaflet) => {
+    if (this.matchingLocations.length > 0) {
+      const { lat, lon } = this.matchingLocations[this.index];
+      
+      this.map.setView([lat, lon], 16);
+      const marker = Leaflet.marker([lat, lon]).addTo(this.map)
+
+      marker.bindPopup(this.matchingLocations[index].name).openPopup()
+      this.addMarker([lat, lon]);
+    } else {
+      console.error('Location not found');
+    }
+  }
+      )
+  }}
 
   addMarker(coordinates: [number, number]): void {
     if (isPlatformBrowser(this.platformId)) {
