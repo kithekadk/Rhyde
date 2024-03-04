@@ -46,10 +46,17 @@ export class MapComponent implements OnInit {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(this.map);
 
+          const customIcon = Leaflet.icon({
+            iconUrl: 'assets/marker.png',
+            iconSize: [35, 35],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -86]
+          });
+
           this.markersLayer = Leaflet.layerGroup().addTo(this.map);
 
           // adding marker
-          const marker = Leaflet.marker([lat, long]).addTo(this.map)
+          const marker = Leaflet.marker([lat, long], {icon: customIcon}).addTo(this.map)
 
           marker.bindPopup('You').openPopup()
 
@@ -60,7 +67,6 @@ export class MapComponent implements OnInit {
 
       }), () => {
         console.log('Enable location to automate the process');
-
       }
 
     }
@@ -124,8 +130,15 @@ export class MapComponent implements OnInit {
           }
         }); 
         this.drawRoute(Leaflet.latLng(this.currentLat, this.currentLong), Leaflet.latLng(coordinates[0], coordinates[1]))
+        
+        const customIcon = Leaflet.icon({
+          iconUrl: 'assets/marker.png',
+          iconSize: [35, 35],
+          iconAnchor: [22, 94],
+          popupAnchor: [-3, -86]
+        });
 
-        Leaflet.marker(coordinates).addTo(this.map);
+        Leaflet.marker(coordinates ,{icon:customIcon}).addTo(this.map);
 
       })
     }
@@ -153,7 +166,7 @@ export class MapComponent implements OnInit {
 
             setTimeout(() => {
               this.getDirection()
-            }, 2000);
+            }, 1000);
           }
         })
       }
