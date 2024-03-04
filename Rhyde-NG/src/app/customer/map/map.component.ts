@@ -1,5 +1,5 @@
 
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,12 +14,17 @@ export class MapComponent implements OnInit {
 
   map: any;
   markersLayer: any;
-  index!:number
+  index!: number
   hidelist = true
 
-  matchingLocations: any[]=[]
+  currentLat!: number
+  currentLong!: number
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  matchingLocations: any[] = []
+
+  // accssing directions
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -27,23 +32,28 @@ export class MapComponent implements OnInit {
         const lat = position.coords.latitude
         const long = position.coords.longitude
 
+        this.currentLat = lat
+        this.currentLong = long
+
 
         import('leaflet').then((Leaflet) => {
           this.map = Leaflet.map('map', {
             center: [lat, long], // Initial map center coordinates
-            zoom: 13 // Initial zoom level
+            zoom: 20 // Initial zoom level
           });
 
           Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(this.map);
 
+          this.markersLayer = Leaflet.layerGroup().addTo(this.map);
+
           // adding marker
           const marker = Leaflet.marker([lat, long]).addTo(this.map)
 
           marker.bindPopup('You').openPopup()
 
-          this.map.setView([lat, long], 16);
+          this.map.setView([lat, long], 10);
         }).catch((error) => {
           console.error('Error loading Leaflet:', error);
         });
@@ -75,7 +85,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  getLocationCoordsForSelectedLocation(index:number){
+  getLocationCoordsForSelectedLocation(index: number) {
 
     this.hidelist = true
 
@@ -83,28 +93,85 @@ export class MapComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId)) {
       import('leaflet').then((Leaflet) => {
-    if (this.matchingLocations.length > 0) {
-      const { lat, lon } = this.matchingLocations[this.index];
-      
-      this.map.setView([lat, lon], 16);
-      const marker = Leaflet.marker([lat, lon]).addTo(this.map)
+        if (this.matchingLocations.length > 0) {
+          const { lat, lon } = this.matchingLocations[this.index];
+          console.log(((Number(lat) + Number(this.currentLat)) / 2));
 
-      marker.bindPopup(this.matchingLocations[index].name).openPopup()
-      this.addMarker([lat, lon]);
-    } else {
-      console.error('Location not found');
+          this.map.setView([((Number(lat) + Number(this.currentLat)) / 2), ((Number(lon) + Number(this.currentLong)) / 2)], 8);
+          const marker = Leaflet.marker([lat, lon]).addTo(this.map)
+
+          marker.bindPopup(this.matchingLocations[index].name).openPopup()
+          this.addMarker([lat, lon]);
+
+
+        } else {
+          console.error('Location not found');
+        }
+      }
+      )
     }
   }
-      )
-  }}
 
   addMarker(coordinates: [number, number]): void {
     if (isPlatformBrowser(this.platformId)) {
       import('leaflet').then((Leaflet) => {
-        this.markersLayer.clearLayers(); // Clear existing markers
-        Leaflet.marker(coordinates).addTo(this.markersLayer);
+
+        // Clear existing markers
+        this.map.eachLayer((layer: { _url: any; }) => {
+          if (!layer._url) {
+
+            this.map.removeLayer(layer);
+          }
+        }); 
+        this.drawRoute(Leaflet.latLng(this.currentLat, this.currentLong), Leaflet.latLng(coordinates[0], coordinates[1]))
+
+        Leaflet.marker(coordinates).addTo(this.map);
+
       })
     }
   }
 
+  drawRoute(startPoint: L.LatLngExpression, endPoint: L.LatLngExpression) {
+    import('leaflet-routing-machine').then(() => {
+        import('leaflet').then((L) => {
+          if (this.map) {
+            const control = L.Routing.control({
+              waypoints: [
+                L.latLng(startPoint),
+                L.latLng(endPoint)
+              ],
+              routeWhileDragging: true,
+              lineOptions: {
+                styles:[{color:'red', weight: 5,
+                }],
+                missingRouteTolerance: 2,
+                extendToWaypoints: true
+              }
+            }).addTo(this.map);
+            // console.log(startPoint);
+            // console.log(endPoint);
+
+            setTimeout(() => {
+              this.getDirection()
+            }, 2000);
+          }
+        })
+      }
+    )
+  }
+
+  getDirection(){
+    const parentElement = this.elementRef.nativeElement.getElementsByClassName('leaflet-routing-alt ')[0]
+    console.log(parentElement );
+
+    if (parentElement) {
+        // Accessing text content of parent element without tags
+      const textContent = parentElement.innerText;
+
+      // Replace newline characters with comma and trim excess whitespace
+      const formattedText = textContent.replace(/\n/g, ',').trim();
+
+      console.log(formattedText);
+    }
+  }
 }

@@ -52,7 +52,7 @@ export class LoginComponent {
               if(res.info.role == 'driver'){
                 this.router.navigate(['driver'])
               }else if(res.info.role == 'customer'){
-                this.router.navigate(['user', 'my-trips'])
+                this.router.navigate(['user', 'map'])
               }else if(res.info.role == 'admin'){
                 this.router.navigate(['admin', 'view-users'])
               }
