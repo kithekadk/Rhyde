@@ -35,7 +35,6 @@ export class MapComponent implements OnInit {
         this.currentLat = lat
         this.currentLong = long
 
-
         import('leaflet').then((Leaflet) => {
           this.map = Leaflet.map('map', {
             center: [lat, long], // Initial map center coordinates
@@ -50,7 +49,7 @@ export class MapComponent implements OnInit {
             iconUrl: 'assets/marker.png',
             iconSize: [35, 35],
             iconAnchor: [22, 94],
-            popupAnchor: [-3, -86]
+            popupAnchor: [-3, -76]
           });
 
           this.markersLayer = Leaflet.layerGroup().addTo(this.map);
@@ -78,7 +77,9 @@ export class MapComponent implements OnInit {
       import('leaflet').then((Leaflet) => {
         if (query.trim() === '') return;
 
-        fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json`)
+        const countryCode = 'KE'
+
+        fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&bounded=1&countrycodes=${countryCode}`)
           .then(response => {
             return response.json()
           })
@@ -185,6 +186,23 @@ export class MapComponent implements OnInit {
       const formattedText = textContent.replace(/\n/g, ',').trim();
 
       console.log(formattedText);
+
+      const utterence = new SpeechSynthesisUtterance(formattedText)
+
+      const voices = speechSynthesis.getVoices()
+
+      console.log(voices);
+      utterence.voice = voices[0]
+
+      speechSynthesis.speak(utterence)
+      
     }
   }
+
+  // createFence(){
+  //   import('leaflet').then((Leaflet) => {
+  //     const nyeriBounds = Leaflet.latLngBounds([5.0, 33.9], [-4.7, 42.0])
+  //     Leaflet.rectangle(nyeriBounds, {color: "", weight: 1, fillOpacity: 0.2}).addTo(this.map);
+  //   })
+  // }
 }
