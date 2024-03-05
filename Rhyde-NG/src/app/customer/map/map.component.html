@@ -5,39 +5,5 @@
     </div>
 </form>
 
-<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" /> -->
-
 <div id="map" class="h-[85vh] w-[85vw] ml-[10px]"> </div>
-
-
-    <ul id="messages" class="my-12"></ul>
-    <form id="form" action="">
-        <input id="input" autocomplete="off" class="border mr-4"/><button>Send</button>
-    </form>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-
-        // Get references to form and input field
-        var form = document.getElementById('form');
-        var input = document.getElementById('input');
-
-        // Add event listener for form submission
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            if (input.value) {
-                socket.emit('chat message', input.value); // Send message to server
-                input.value = ''; // Clear input field
-            }
-        });
-
-        // Listen for incoming messages from server
-        socket.on('chat message', function(message) {
-            var item = document.createElement('li');
-            item.textContent = message;
-            document.getElementById('messages').appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight); // Scroll to bottom
-        });
-    </script>
 

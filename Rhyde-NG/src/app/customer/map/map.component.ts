@@ -192,7 +192,7 @@ export class MapComponent implements OnInit {
       const voices = speechSynthesis.getVoices()
 
       console.log(voices);
-      utterence.voice = voices[0]
+      utterence.voice = voices[0] 
 
       speechSynthesis.speak(utterence)
       
