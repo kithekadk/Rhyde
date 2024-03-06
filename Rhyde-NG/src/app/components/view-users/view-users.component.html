@@ -1,4 +1,7 @@
 <div>
+    <div class="fixed flex justify-end mb-2 mr-6 ">
+        <input type="search" placeholder="Search employee by email" class="p-2 w-[250px] rounded-2xl" [(ngModel)]="filter" >
+    </div>
     <table class="w-[70vw] table-auto border-collapse border border-slate-400">
         <tr>
             <th>No.</th>
@@ -9,7 +12,7 @@
             <th>Profile</th>
             <th>Actions</th>
         </tr>
-        <tr *ngFor="let user of users; let i = index">
+        <tr *ngFor="let user of users | search: filter;; let i = index">
             <td class="border border-slate-300 p-2">{{i+1}}</td>
             <td class="border border-slate-300 p-2">{{user.name}}</td>
             <td class="border border-slate-300 p-2">{{user.email}}</td>
