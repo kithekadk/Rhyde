@@ -35,7 +35,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWQxNGEwNWUtOTMwOC00
     "profile_image": ""
 }
 
-###
+### delete users
 
 DELETE http://localhost:4100/users/delete/8b8538ed-a064-4ded-925c-52eaee2a1b11
 Content-Type: application/json
